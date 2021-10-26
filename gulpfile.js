@@ -49,20 +49,44 @@ const js = () => {
 		.pipe(dest('dist/js'))
 }
 
+const images = () => {
+	return src('src/img/**/*.{jpg,jpeg,png,svg,webp}')
+		.pipe(dest('dist/img'))
+}
+
+const videos = () => {
+	return src('src/videos/**/*.*')
+		.pipe(dest('dist/videos'))
+}
+
+const fonts = () => {
+	return src('src/fonts/*.*')
+		.pipe(dest('dist/fonts'))
+}
+
 const clean = () => {
 	return del('dist')
 }
 
-const serve = () => {
+const watching = () => {
 	sync.init({
 		server: './dist'
 	})
 
-	watch('src/**/**.html', series(html)).on('change', sync.reload)
-	watch('src/scss/**.scss', series(scss)).on('change', sync.reload)
-	watch('src/js/**.js', series(js)).on('change', sync.reload)
+	watch('src/**/*.html', series(html)).on('change', sync.reload)
+	watch('src/scss/*.scss', series(scss)).on('change', sync.reload)
+	watch('src/js/*.js', series(js)).on('change', sync.reload)
+	watch('src/img/**/*.{jpg,jpeg,png,svg,gif,ico,webp}', series(images)).on('change', sync.reload)
+	watch('src/fonts/**/*.{ttf,otf,woff,woff2}', series(fonts)).on('change', sync.reload)
 }
 
-exports.build = series(clean, scss, html, js);
-exports.serve = series(clean, scss, html, js, serve);
+const build = series(clean, scss, html, js, images, videos, fonts);
+const serve = series(build, watching);
+
 exports.clean = clean;
+exports.images = images;
+exports.videos = videos;
+exports.fonts = fonts;
+exports.build = build;
+exports.serve = serve;
+exports.default = serve;
