@@ -10,6 +10,7 @@
 @import "null";
 body {
 	color: $mainColor;
+	background-color: $mainBgColor;
 	&._lock {
 		overflow: hidden;
 	}
