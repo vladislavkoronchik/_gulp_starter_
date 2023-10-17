@@ -1,0 +1,26 @@
+@use 'sass:math';
+
+// 1. abstracts/
+@import "abstracts/variables";
+@import "abstracts/functions";
+@import "abstracts/mixins";
+
+// 2. vendors/
+
+// 3. base/
+//&display=swap&subset=cyrillic-ext
+@import "base/fonts";
+@import "base/colors";
+@import "base/spacings";
+@import "base/typography";
+@import "base/reset";
+@import "base/base";
+
+// 4. layout/
+@import "layout/header";
+@import "layout/footer";
+
+// 5. components/
+// 6. pages/
+// 7. themes/
+@import "themes/dark";

@@ -1,0 +1,15 @@
+.footer {
+  width: 100%;
+  background-color: $c-bg;
+  text-align: center;
+  --chroma: 0.25;
+  --lightness: 41%;
+
+  &:hover {
+    --chroma: 0.26;
+  }
+  // .footer__inner
+  &__inner {
+    padding: em(30) 0;
+  }
+}

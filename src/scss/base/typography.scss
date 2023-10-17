@@ -1,0 +1,13 @@
+:root {
+  --fz-base: 16;
+  --fz-multiplier: 1.242;
+  
+  --h6-fz: calc(var(--fz-base) * var(--fz-multiplier));
+  --h5-fz: calc(var(--h6-fz) * var(--fz-multiplier));
+  --h4-fz: calc(var(--h5-fz) * var(--fz-multiplier));
+  --h3-fz: calc(var(--h4-fz) * var(--fz-multiplier));
+  --h2-fz: calc(var(--h3-fz) * var(--fz-multiplier));
+  --h1-fz: calc(var(--h2-fz) * var(--fz-multiplier));
+  --display-text-fz: calc(var(--h1-fz) * var(--fz-multiplier));
+  --small-text-fz: calc(var(--fz-base) / var(--fz-multiplier));
+}

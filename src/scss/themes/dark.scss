@@ -1,0 +1,17 @@
+.dark, .dark * {
+  --c-text: oklch(23.5% calc(var(--chroma) - 0.15) calc((var(--hue)) + 119.876) / var(--alpha));
+  --c-bg: oklch(91% calc(var(--chroma) - 0.15) calc((var(--hue)) + 119.876) / var(--alpha));
+  --c-accent: oklch(85.6% calc(var(--chroma) - 0.15 + 0.1225) calc((var(--hue)) - 110.346) / var(--alpha));
+
+  --c-a: #333;
+  --c-a-hover: #333;
+  --c-a-bg-hover: #333;
+  --c-border: #333;
+  --c-btn-bg: #333;
+  --c-btn-bg-hover: #333;
+  --coverlay: #333;
+  --c-input-bg: #333;
+  --c-input-bg-disabled: #333;
+  --c-input-focus-bg: #333;
+  --c-input-focus-text: #333;
+}

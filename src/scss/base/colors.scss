@@ -1,0 +1,47 @@
+html, html * {
+  --lightness: 50%;
+  --chroma: 0.2;
+  --hue: 330;
+  // --hue: 270;
+  // --hue: 210;
+  // --hue: 150;
+  // --hue: 90;
+  // --hue: 30;
+
+  --alpha: 1;
+  
+  --c-text: oklch(calc(var(--lightness) - 50% + 91%) calc(var(--chroma) - 0.2 + 0.01) calc((var(--hue, 330))) / var(--alpha));
+  --c-bg: oklch(calc(var(--lightness) - 50% + 23.5%) calc(var(--chroma) - 0.2 + 0.04) calc((var(--hue, 330))) / var(--alpha));
+  --c-primary: oklch(var(--lightness) var(--chroma) var(--hue, 330) / var(--alpha));
+  --c-accent: oklch(calc(var(--lightness)) calc(var(--chroma)) calc((var(--hue, 330)) - 75) / var(--alpha));
+  // --c-accent: purple;
+
+  --c-a: #ccc;
+  --c-a-hover: #ccc;
+  --c-a-bg-hover: #ccc;
+  --c-border: #ccc;
+  --c-btn-bg: #ccc;
+  --c-btn-bg-hover: #ccc;
+  --coverlay: #ccc;
+  --c-input-bg: #ccc;
+  --c-input-bg-disabled: #ccc;
+  --c-input-focus-bg: #ccc;
+  --c-input-focus-text: #ccc;
+}
+
+$c-text: var(--c-text);
+$c-bg: var(--c-bg);
+$c-primary: var(--c-primary);
+$c-accent: var(--c-accent);
+
+$c-a: var(--c-a);
+$c-a-hover: var(--c-a-hover);
+$c-a-bg-hover: var(--c-a-bg-hover);
+$c-border: var(--c-border);
+$c-btn-bg: var(--c-btn-bg);
+$c-btn-bg-hover: var(--c-btn-bg-hover);
+$coverlay: var(--coverlay);
+$c-input-bg: var(--c-input-bg);
+$c-input-bg-disabled: var(--c-input-bg-disabled);
+$c-input-focus-bg: var(--c-input-focus-bg);
+$c-input-focus-text: var(--c-input-focus-text);

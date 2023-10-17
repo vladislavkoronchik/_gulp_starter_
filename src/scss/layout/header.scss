@@ -1,0 +1,14 @@
+.header {
+  width: 100%;
+  background-color: $c-bg;
+  text-align: center;
+  --chroma: 0.3;
+
+  &:hover {
+    --chroma: 0.35;
+  }
+  // .header__inner
+  &__inner {
+    padding: em(30) 0;
+  }
+}

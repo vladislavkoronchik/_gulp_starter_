@@ -1,0 +1,18 @@
+@function stripUnit($value) {
+	@if type-of($value) == 'number' and not unitless($value) {
+		@return math.div($value, $value * 0 + 1);
+	}
+	@return $value;
+}
+
+@function rem($pxValue) {
+	@return #{math.div(stripUnit($pxValue), stripUnit($fz))}rem;
+}
+
+@function remv($pxValue) {
+	@return #{math.div(stripUnit($pxValue), stripUnit($fz))};
+}
+
+@function em($px, $context: $browser-context) {
+  @return #{math.div(stripUnit($px), stripUnit($context))}em;
+}
