@@ -63,36 +63,6 @@ export const fontsStyle = () => {
 						if (newFileOnly !== fontFileName) {
 							if (fontFileExt === 'woff' || fontFileExt === 'woff2') {
 								const [ fontName, fontWeightString = 'regular' ] = fontFileName.split('-');
-								// switch (fontWeight.toLowerCase()) {
-								// 	case 'thin':
-								// 		fontWeight = 100;
-								// 		break;
-								// 	case 'extralight':
-								// 		fontWeight = 200;
-								// 		break;
-								// 	case 'light':
-								// 		fontWeight = 300;
-								// 		break;
-								// 	case 'medium':
-								// 		fontWeight = 500;
-								// 		break;
-								// 	case 'semibold':
-								// 		fontWeight = 600;
-								// 		break;
-								// 	case 'bold':
-								// 		fontWeight = 700;
-								// 		break;
-								// 	case 'extrabold':
-								// 	case 'heavy':
-								// 		fontWeight = 800;
-								// 		break;
-								// 	case 'black':
-								// 		fontWeight = 900;
-								// 		break;
-								// 	default:
-								// 		fontWeight = 400;
-								// 		break;
-								// }
 								const italicRegex = /italic/i;
 								const fontWeight = fontWeightObj[fontWeightString.replace(italicRegex, '').toLowerCase()] || 400;
 								const fontStyle = italicRegex.test(fontFileName) ? 'italic' : 'normal';
