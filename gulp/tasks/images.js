@@ -1,7 +1,46 @@
-import gulp from 'gulp';
-import {plugins} from '../config/plugins.js';
+import newer from 'gulp-newer';
+import avif from 'gulp-avif';
+import webp from 'gulp-webp';
+import imagemin from 'gulp-imagemin';
 
 export const images = () => {
-	return gulp.src('src/img/**/*.{jpg,jpeg,png,svg,webp}')
-		.pipe(gulp.dest('dist/img'))
+	if (app.isDev) {
+		return app.gulp.src(app.path.src.images)
+			.pipe(app.plugins.plumberNotify('IMAGES'))
+			.pipe(app.gulp.dest(app.path.build.images))
+			.pipe(app.gulp.src(app.path.src.svg))
+			.pipe(app.gulp.dest(app.path.build.images))
+			.pipe(app.plugins.sync.stream());
+	}
+
+	return app.gulp.src(app.path.src.images)
+		// .pipe(app.plugins.plumber(
+		// 	app.plugins.notify.onError({
+		// 		title: "IMAGES",
+		// 		message: "Error: <%= error.message %>"
+		// 	}))
+		// )
+		.pipe(app.plugins.plumberNotify('IMAGES'))
+		.pipe(app.plugins.newer(app.path.build.images))
+		.pipe(avif({ quality: 50 }))
+		.pipe(app.gulp.dest(app.path.build.images))
+
+		.pipe(app.gulp.src(app.path.src.images))
+		.pipe(app.plugins.newer(app.path.build.images))
+		.pipe(webp())
+		.pipe(app.gulp.dest(app.path.build.images))
+
+		.pipe(app.gulp.src(app.path.src.images))
+		.pipe(app.plugins.newer(app.path.build.images))
+		.pipe(imagemin({
+			progressive: true,
+			svgoPlugins: [{removeViewBox: true}],
+			interlaced: true,
+			optimizationLevel: 3
+		}))
+		.pipe(app.gulp.dest(app.path.build.images))
+		.pipe(app.gulp.src(app.path.src.svg))
+		.pipe(app.gulp.dest(app.path.build.images))
+
+		.pipe(app.plugins.sync.stream());
 }
