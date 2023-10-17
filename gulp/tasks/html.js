@@ -5,12 +5,6 @@ import prettyHtml from "gulp-pretty-html";
 
 export const html = () => {
 	return app.gulp.src(app.path.src.html)
-		// .pipe(app.plugins.plumber(
-		// 	app.plugins.notify.onError({
-		// 		title: "HTML",
-		// 		message: "Error: <%= error.message %>"
-		// 	}))
-		// )
 		.pipe(app.plugins.plumberNotify('HTML'))
 		.pipe(app.plugins.fileinclude())
 		.pipe(app.plugins.replace(/@img\//g, 'img/'))

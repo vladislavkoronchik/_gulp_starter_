@@ -1,4 +1,3 @@
-import newer from 'gulp-newer';
 import avif from 'gulp-avif';
 import webp from 'gulp-webp';
 import imagemin from 'gulp-imagemin';
@@ -14,12 +13,6 @@ export const images = () => {
 	}
 
 	return app.gulp.src(app.path.src.images)
-		// .pipe(app.plugins.plumber(
-		// 	app.plugins.notify.onError({
-		// 		title: "IMAGES",
-		// 		message: "Error: <%= error.message %>"
-		// 	}))
-		// )
 		.pipe(app.plugins.plumberNotify('IMAGES'))
 		.pipe(app.plugins.newer(app.path.build.images))
 		.pipe(avif({ quality: 50 }))
