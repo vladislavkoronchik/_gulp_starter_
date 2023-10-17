@@ -32,7 +32,7 @@ const watching = () => {
 
 	// Слежение за шрифтами и их автоматическая обработка.
 	// Раскомментировать, если ваш заказчик просит поиграться со шрифтами.
-	// В функции fontsStyle нужно убедиться, чтобы условие на 52-ой строке было закомментировано.
+	// В функции fontsStyle нужно убедиться, чтобы условие на 57-ой строке было закомментировано.
 	
 	gulp.watch(app.path.watch.fonts.otf, { queue: false }, otfToTtf)
 	gulp.watch(app.path.watch.fonts.ttf, { queue: false }, gulp.series(ttfToWoff, copyWoff))
