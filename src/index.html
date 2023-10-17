@@ -1,13 +1,16 @@
 <!DOCTYPE html>
 <html lang="ru">
-@@include('templates/_head.html',{"title":"Gulp Starter"})
-<body>
-	<div class="wrapper">
-		@@include('templates/_header.html',{})
-		<main class="page">
-			
-		</main>
-		@@include('templates/_footer.html',{})
-	</div>
-</body>
+  @@include('html/layouts/head.html',{"title":"Gulp Starter"})
+  <body> <!-- add class="dark" to switch theme -->
+    <div class="wrapper">
+      @@include('html/layouts/header.html',{})
+
+      <main class="page">
+        <h1>Привет, Gulp!</h1>
+        <img src="@img/1.jpg" alt="" data-picture-class="page__image-wrapper" class="page__image" >
+      </main>
+
+      @@include('html/layouts/footer.html',{})
+    </div>
+  </body>
 </html>
